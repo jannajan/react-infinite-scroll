@@ -32,7 +32,6 @@ export default function useBookSearch(query, pageNumber) {
       })
       setHasMore(res.data.docs.length > 0)
       setIsLoading(false)
-      console.log(res.data)
     }).catch(err => {
       if (axios.isCancel(err)) return
       setHasError(true)
