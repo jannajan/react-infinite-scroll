@@ -40,13 +40,15 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="app">
+      <header className="app-header">
         <div>Infinite Scroll Playground</div>
       </header>
-      <>
+      <div className="root">
         <input
+          className="search-box"
           type="text"
+          placeholder="Search for book titles..."
           value={query}
           onChange={handleSearch}
         />
@@ -57,9 +59,9 @@ function App() {
             return <div key={idx}>{book}</div>
           }
         })}
-        <div>{isLoading ? 'Loading search results...' : null}</div>
-        <div>{hasError ? 'Oops, something went wrong' : null}</div>
-      </>
+        <div className="loading">{isLoading && !hasError && query !== '' ? 'Loading search results...' : null}</div>
+        <div className="error">{hasError ? 'Oops, something went wrong' : null}</div>
+      </div>
     </div>
   );
 }
